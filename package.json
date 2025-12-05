@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NEXT_DEV_DISABLE_TURBOPACK=1 next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@tanstack/react-query": "^5.90.11",
+    "antd": "^6.0.1",
+    "axios": "^1.13.2",
+    "classnames": "^2.5.1",
     "next": "16.0.7",
     "react": "19.2.0",
     "react-dom": "19.2.0"
@@ -20,7 +25,19 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "sass": "^1.94.2",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,css,scss}": [
+      "npm run lintfix"
+    ]
+  },
+  "engines": {
+    "node": ">=20.9.0"
   }
 }
